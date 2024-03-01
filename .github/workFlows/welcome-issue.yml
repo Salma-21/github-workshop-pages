@@ -3,8 +3,8 @@ on:
   issues:
    types: [opened]
 permissions:
-  issues: write
   contents: read
+  issues: write
 
 jobs:
   assess-issue:
