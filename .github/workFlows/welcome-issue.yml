@@ -1,0 +1,25 @@
+name: Welcome to my github repo
+on:
+  issues:
+   types: [opened]
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  assess-issue:
+    name: welcome and label
+    runs-on: ubuntu-latest
+    steps:
+      - name: Thanks for your comment
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '👋 Thanks for reporting!'
+            })
+            
+      
